@@ -1,0 +1,202 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { min-height: 100vh; overflow: hidden; }
+
+/* 祈愿背景（适配你之前的背景图） */
+/* 原神原版祈愿背景：三层叠加 + 旋转光效 */
+.gacha-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 三层背景叠加：星空底 → 法阵环 → 渐变蒙版 */
+    background:
+            url("../images/gacha_bg/mask.png") no-repeat center/cover fixed,
+            url("../images/gacha_bg/circle.png") no-repeat center/contain fixed,
+            url("../images/gacha_bg/star_bg.png") no-repeat center/cover fixed;
+    /* 暗角+柔光，贴合原版色调 */
+    filter: brightness(0.9) contrast(1.1) saturate(1.2);
+    z-index: -1;
+}
+
+/* 法阵旋转动画：还原祈愿时的光环转动 */
+.gacha-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/gacha_bg/circle.png") no-repeat center/contain fixed;
+    animation: circleRotate 20s linear infinite;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* 旋转动画：匀速缓慢转动 */
+@keyframes circleRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 其他样式保持不变（卡片、按钮等） */
+
+/* 抽卡容器 */
+.gacha-container {
+    width: 100%; padding: 20px;
+    display: flex; flex-direction: column; align-items: center;
+}
+/* 修改按钮容器样式（定位到右下角） */
+#wish-container {
+    position: fixed;
+    right: 20px;  /* 距离右侧20px */
+    bottom: 50px; /* 距离底部50px */
+    z-index: 10;
+    display: flex; /* 启用flex布局 */
+    gap: 15px; /* 两个按钮之间的间距 */
+}
+
+/* 调整按钮尺寸使排列更协调 */
+.wish-btn {
+    width: 120px; /* 稍微加宽按钮 */
+    height: 45px;
+    /* 其他原有样式保持不变 */
+    background-color: #f5f8ff;
+    border: 2px solid #e6c880;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* 左右装饰箭头（伪元素） */
+.wish-btn::before,
+.wish-btn::after {
+    content: "❖"; /* 用特殊符号模拟装饰箭头 */
+    color: #e6c880;
+    font-size: 14px;
+    position: absolute;
+}
+.wish-btn::before {
+    left: 15px;
+}
+.wish-btn::after {
+    right: 15px;
+}
+
+/* 按钮文字样式 */
+.wish-text {
+    font-size: 18px;
+    color: #5a4a2e;
+    font-weight: 600;
+}
+/* 卡片区：十连横向排列 */
+.card-box {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center; margin-top: 30px;
+}
+
+/* 卡片基础样式 */
+.card {
+    width: 120px; height: 180px;
+    border-radius: 10px; overflow: hidden;
+    position: relative; cursor: pointer;
+    transform-style: preserve-3d;
+    animation: cardSlideIn 0.6s ease-out forwards;
+}
+/* 卡片滑入动画（原版从上方落下） */
+@keyframes cardSlideIn {
+    0% { transform: translateY(-200px) rotate(10deg); opacity: 0; }
+    70% { transform: translateY(20px) rotate(-5deg); opacity: 1; }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* 卡背+卡面（翻牌核心：backface-visibility） */
+.card-back, .card-front {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* 卡背（原神默认祈愿卡背） */
+.card-back {
+    background: url("../images/card_back.png") center/cover;
+    transform: rotateY(0deg);
+}
+/* 卡面：默认翻转隐藏 */
+.card-front {
+    background: #fff center/cover;
+    transform: rotateY(180deg);
+}
+
+/* 点击翻牌 */
+.card.active .card-back { transform: rotateY(180deg); }
+.card.active .card-front { transform: rotateY(0deg); }
+
+/* 稀有度特效（原版光影） */
+/* 5星金光 */
+.ssr.card { box-shadow: 0 0 20px #ffd700, 0 0 40px #FFF07E; }
+.ssr::before {
+    content: ""; position: absolute;
+    width: 100%; height: 100%;
+    background: radial-gradient(#ffd70033, transparent);
+    animation: ssrLight 2s infinite alternate;
+}
+@keyframes ssrLight { from { opacity: 0.6; } to { opacity: 1; } }
+
+/* 4星蓝光 */
+.sr.card { box-shadow: 0 0 15px rgb(212, 135, 249), 0 0 30px rgb(201, 159, 250); }
+
+/* 星星飘落特效（祈愿氛围） */
+.star {
+    position: absolute; color: #fff;
+    font-size: 12px; opacity: 0;
+    animation: starFall linear infinite;
+}
+/* 修改gacha.css中的星星和按钮样式 */
+
+/* 星星掉落动画（改为垂直掉落并） */
+@keyframes starFall {
+    0% { transform: translateY(-10px) translateX(0); opacity: 1; }
+    100% { transform: translateY(90vh) translateX(0); opacity: 0; }
+}
+
+/* 按钮容器样式（用于居中按钮） */
+.btn-container {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.3s;
+}
+
+/* 隐藏按钮的类 */
+.btn-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 跳过按钮样式 */
+.skip-btn {
+    position: fixed;
+    top: 2px;
+    right: 2px;
+    padding: 8px 16px;
+    background: rgba(0,0,0,0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 20;
+    display: none;
+}
+
+.skip-btn.show {
+    display: block;
+}
