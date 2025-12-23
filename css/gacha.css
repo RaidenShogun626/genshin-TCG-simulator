@@ -183,8 +183,28 @@ body {
 
 /* 卡片区：十连横向排列 */
 .card-box {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    justify-content: center; margin-top: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    /* 如果想让卡片从上到下排列，可以使用flex-direction */
+    /* flex-direction: column; */
+
+    background-color: transparent;
+    z-index: 5;
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        gap: 8px;
+        padding: 10px;
+    }
 }
 
 /* 卡片基础样式 */
@@ -194,6 +214,8 @@ body {
     position: relative; cursor: pointer;
     transform-style: preserve-3d;
     animation: cardSlideIn 0.6s ease-out forwards;
+    border: none;
+    margin: 0;
 }
 /* 卡片滑入动画（原版从上方落下） */
 @keyframes cardSlideIn {
@@ -204,6 +226,7 @@ body {
 
 /* 卡背+卡面（翻牌核心：backface-visibility） */
 .card-back, .card-front {
+    background-size: 100% 100% !important;
     position: absolute; top: 0; left: 0;
     width: 100%; height: 100%;
     backface-visibility: hidden;
@@ -226,32 +249,43 @@ body {
 
 /* 稀有度特效（原版光影） */
 /* 5星金光 */
-.ssr.card { box-shadow: 0 0 20px #ffd700, 0 0 40px #FFF07E; }
-.ssr::before {
-    content: ""; position: absolute;
-    width: 100%; height: 100%;
-    background: radial-gradient(#ffd70033, transparent);
-    animation: ssrLight 2s infinite alternate;
+.ssr.card {
+    border:3px solid #ffd700 !important;
+    box-shadow:
+            0 0 20px #ffd700,
+            0 0 40px #FFF07E,
+            inset 0 0 15px #ffd700;
 }
+    .ssr::before {
+        content: "";
+        position: absolute;
+        width: calc(100% - 6px); /* 减去边框宽度 */
+        height: calc(100% - 6px); /* 减去边框宽度 */
+        left: 3px; /* 边框宽度的一半 */
+        top: 3px; /* 边框宽度的一半 */
+        background: radial-gradient(#ffd70033, transparent);
+        animation: ssrLight 2s infinite alternate;
+        border-radius: 7px; /* 比卡片小一点 */
+        z-index: 1;
+        pointer-events: none;
+    }
 @keyframes ssrLight { from { opacity: 0.6; } to { opacity: 1; } }
 
 /* 4星蓝光 */
-.sr.card { box-shadow: 0 0 15px rgb(212, 135, 249), 0 0 30px rgb(201, 159, 250); }
-
-/* 星星飘落特效（祈愿氛围） */
-.star {
-    position: absolute; color: #4EBFFC;
-    font-size: 12px; opacity: 0;
-    animation: starFall linear infinite;
-}
-/* 修改gacha.css中的星星和按钮样式 */
-
-/* 星星掉落动画（改为垂直掉落并） */
-@keyframes starFall {
-    0% { transform: translateY(-10px) translateX(0); opacity: 1; }
-    100% { transform: translateY(90vh) translateX(0); opacity: 0; }
+.sr.card {
+    border:3px solid rgb(212,135,249) !important;
+    box-shadow:
+            0 0 15px rgb(212, 135, 249),
+            0 0 30px rgb(201, 159, 250);
 }
 
+.r.card{
+    border:3px solid #4EBFFC !important;
+    box-shadow:
+            0 0 15px rgba(78, 191, 252,0.5),
+            0 0 30px rgba(78, 191, 252,0.3),
+            0 0 5px rgba(78,191,252,0.3);
+}
 /* 按钮容器样式（用于居中按钮） */
 .btn-container {
     position: fixed;
