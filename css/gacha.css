@@ -2,44 +2,112 @@
 body { min-height: 100vh; overflow: hidden; }
 
 /* 祈愿背景（适配你之前的背景图） */
-/* 原神原版祈愿背景：三层叠加 + 旋转光效 */
 .gacha-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* 三层背景叠加：星空底 → 法阵环 → 渐变蒙版 */
-    background:
-            url("../images/gacha_bg/mask.png") no-repeat center/cover fixed,
-            url("../images/gacha_bg/circle.png") no-repeat center/contain fixed,
-            url("../images/gacha_bg/star_bg.png") no-repeat center/cover fixed;
+    background: url("../images/gacha_bg/mask.png") no-repeat center/cover fixed;
     /* 暗角+柔光，贴合原版色调 */
     filter: brightness(0.9) contrast(1.1) saturate(1.2);
     z-index: -1;
 }
+.card {
+    width: 150px;
+    height: 220px;
+}
+.card-back {
+    background-image: url("../images/card_back.png");
+}
+.animate-roll {
+    animation-name: flip;
+    transform-origin: 50% 0;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+@keyframes flip {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(90deg);
+    }
+}
+.card:not(.active) .card-front{
+    display: none;
+}
+.card.active .card-back{
+    display: none;
+}
+.card-level {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
 
-/* 法阵旋转动画：还原祈愿时的光环转动 */
-.gacha-bg::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 60%;
+    height: auto;
+    padding: 10px;
+
+    background: #fff;
+    border: 2px solid #e6c78b;
+    border-radius: 4px;
+    box-shadow: none;
+}
+.card-front, .card-back {
     width: 100%;
     height: 100%;
-    background: url("../images/gacha_bg/circle.png") no-repeat center/contain fixed;
-    animation: circleRotate 20s linear infinite;
-    opacity: 0.7;
-    z-index: -1;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.card-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
 }
 
-/* 旋转动画：匀速缓慢转动 */
-@keyframes circleRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.card-level img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* 其他样式保持不变（卡片、按钮等） */
+.close-Wish {
+    /* 保持原有样式 */
+    background-image: url("../images/gacha_bg/exit.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    width: 23px;
+    height: 25px;
+
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 添加以下定位样式 */
+    position: fixed;
+    top: 10px;      /* 距离顶部距离 */
+    right: 10px;    /* 距离右侧距离 */
+    z-index: 1000;  /* 确保按钮在最上层 */
+}
+
+.wish-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s;
+}
+.wish-btn:active {
+    transform: scale(0.98);
+}
 
 /* 抽卡容器 */
 .gacha-container {
@@ -49,50 +117,70 @@ body { min-height: 100vh; overflow: hidden; }
 /* 修改按钮容器样式（定位到右下角） */
 #wish-container {
     position: fixed;
-    right: 20px;  /* 距离右侧20px */
-    bottom: 50px; /* 距离底部50px */
+    right: 100px;
+    bottom: 18px;
     z-index: 10;
-    display: flex; /* 启用flex布局 */
-    gap: 15px; /* 两个按钮之间的间距 */
+    display: flex;
+    gap: 18px;
 }
 
-/* 调整按钮尺寸使排列更协调 */
 .wish-btn {
-    width: 120px; /* 稍微加宽按钮 */
-    height: 45px;
-    /* 其他原有样式保持不变 */
-    background-color: #f5f8ff;
-    border: 2px solid #e6c880;
-    border-radius: 40px;
+    background-image: url('../images/button.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    width: 240px;
+    height: 60px;
+
+    color: #d4bc8f;
+    font-size: 18px;
+    font-weight: 500;
+
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    position: relative;
-    cursor: pointer;
 }
 
-/* 左右装饰箭头（伪元素） */
-.wish-btn::before,
-.wish-btn::after {
-    content: "❖"; /* 用特殊符号模拟装饰箭头 */
-    color: #e6c880;
-    font-size: 14px;
-    position: absolute;
-}
-.wish-btn::before {
-    left: 15px;
-}
-.wish-btn::after {
-    right: 15px;
+.wish-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s;
+.wish-btn:active {
+        transform: scale(0.98);
 }
 
-/* 按钮文字样式 */
-.wish-text {
-    font-size: 18px;
-    color: #5a4a2e;
-    font-weight: 600;
+.func-btns {
+    position: fixed;
+    opacity: 0.9;
+    bottom: 20px;
+    left: 20px;
+    right: auto;
+    top: auto;
 }
+
+
+
+.func-btns {
+        display: flex;
+        gap: 15px;
+}
+
+*:hover {
+    cursor: url('../images/AIR.png'), auto;
+}
+
+body {
+    margin: 0;
+    cursor: url('../images/AIR.png'), auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* 卡片区：十连横向排列 */
 .card-box {
     display: flex; gap: 12px; flex-wrap: wrap;
@@ -152,7 +240,7 @@ body { min-height: 100vh; overflow: hidden; }
 
 /* 星星飘落特效（祈愿氛围） */
 .star {
-    position: absolute; color: #fff;
+    position: absolute; color: #4EBFFC;
     font-size: 12px; opacity: 0;
     animation: starFall linear infinite;
 }
@@ -199,4 +287,5 @@ body { min-height: 100vh; overflow: hidden; }
 
 .skip-btn.show {
     display: block;
+}
 }
