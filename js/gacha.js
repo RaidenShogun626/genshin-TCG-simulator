@@ -5,20 +5,52 @@ const cardList = {
         "images/char_zhongli.png",
         "images/char_raiden.png",
         "images/char_nahida.png",
+        "images/Klee.png",
+        "images/Jean.png",
+        "images/Diluc.png",
+        "images/Eula.png",
+        "images/Mona.png",
+        "images/Tartaglia.png",
+        "images/Xiao.png",
+        "images/Shenhe.png",
+        "images/Hu_Tao.png",
+        "images/Keqing.png",
+        "images/Ganyu.png",
+        "images/Tighnari.png",
+        "images/Cyno.png",
         "images/Yae_Miko.png",
         "images/Kamizato_Ayaka.png",
         "images/Kamizato_Ayato.png",
         "images/Yoimiya.png",
         "images/Sangonomiya_Kokomi.png",
+        "images/Maguu_Kenki.png",
+        "images/Rhodeia_of_Loch.png",
+        "images/Gold_Lawachurls.png",
+        "images/Jadeplume_Terrorshroom.png",
+        "images/Agents.png",
+        "images/Mirror_Maiden.png",
         "images/Skyward_Atlas.png",
         "images/Skyward_Harp.png",
         "images/Skyward_Spine.png",
         "images/Wolf_Gravestone.png"
     ],
     'sr': [
-        "images/char_xiangling.png",
-        "images/char_xingqiu.png",
+        "images/Kaeya.png",
+        "images/Amber.png",
+        "images/Barbara.png",
+        "images/Noelle.png",
+        "images/Diona.png",
+        "images/Fischl.png",
+        "images/Sucrose.png",
+        "images/Razor.png",
         "images/char_bennett.png",
+        "images/Ningguang.png",
+        "images/Beidou.png",
+        "images/char_xingqiu.png",
+        "images/Chongyun.png",
+        "images/char_xiangling.png",
+        "images/Collei.png",
+        "images/Kujo_Sara.png",
         "images/Sacrificial_Sword.png",
         "images/Sacrificial_Fragments.png",
         "images/Sacrificial_Greatsword.png",
@@ -111,7 +143,7 @@ function createCard(isTenthWish = false) {
     card.dataset.rarity = rarity;
 
     // 根据稀有度添加不同的声音效果
-    let raritySound = "";
+    let raritySound;
     switch(rarity) {
         case "ssr":
             raritySound = "ssrSound";
