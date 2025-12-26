@@ -1,12 +1,4 @@
-let isGachaInProgress = false;
-let animationQueue = [];
-
-function gacha(count = 1) { 
-    if (isGachaInProgress) {
-        console.log("抽卡进行中，请稍候...");
-        return;
-    }
-
+// 1. 基础配置（保持不变）
 const cardList = {
     'ssr': [
         "images/Venti.png",
@@ -64,8 +56,8 @@ const cardList = {
         "images/Sacrificial_Greatsword.png",
         "images/Sacrificial_Bow.png",
         "images/Lithic_Spear.png",
+        "images/Large_Cryo_Slime.png",
         "images/Large_Hydro_Slime.png",
-        "images/Large_Cryo_Slime.png"
     ],
     'r': [
         "images/Hydro_Slime.png",
