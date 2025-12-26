@@ -344,3 +344,202 @@ body {
 .skip-btn.show {
     display: block;
 }
+
+@media (max-width: 768px) {
+    /* 调整卡片大小和布局 */
+    .card {
+        width: 90px !important;
+        height: 135px !important;
+    }
+    
+    /* 调整卡片容器布局 */
+    .card-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        gap: 8px;
+        padding: 10px;
+        overflow-y: auto;
+        max-height: 70vh;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* 十连时调整布局 */
+    .card-box:has(.card:nth-child(10)) {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: min-content;
+        gap: 6px;
+        padding: 5px;
+    }
+    
+    /* 调整抽卡按钮容器 */
+    #wish-container {
+        position: fixed;
+        right: auto !important;
+        bottom: 10px !important;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        z-index: 100;
+    }
+    
+    /* 调整按钮大小 */
+    .wish-btn {
+        width: 200px !important;
+        height: 50px !important;
+        font-size: 16px;
+    }
+    
+    /* 调整关闭按钮位置 */
+    .close-Wish {
+        position: fixed !important;
+        top: 10px !important;
+        right: 10px !important;
+        width: 30px !important;
+        height: 30px !important;
+        z-index: 1000;
+    }
+    
+    /* 调整卡牌等级显示 */
+    .card-level {
+        width: 90% !important;
+        top: 10% !important;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    /* 调整按钮容器响应式 */
+    .btn-container {
+        bottom: 20px;
+    }
+    
+    /* 跳过按钮调整 */
+    .skip-btn {
+        top: 10px;
+        right: 50px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* 超小屏幕手机 */
+@media (max-width: 480px) {
+    .card {
+        width: 80px !important;
+        height: 120px !important;
+    }
+    
+    .card-box:has(.card:nth-child(10)) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    }
+    
+    .wish-btn {
+        width: 180px !important;
+        height: 45px !important;
+        font-size: 14px;
+    }
+    
+    #wish-container {
+        gap: 8px;
+    }
+}
+
+/* 平板设备 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card {
+        width: 110px;
+        height: 165px;
+    }
+    
+    .card-box:has(.card:nth-child(10)) {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+    
+    #wish-container {
+        right: 50px;
+        bottom: 30px;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .card {
+        /* 增加触摸目标大小 */
+        min-width: 80px;
+        min-height: 120px;
+    }
+    
+    /* 增大按钮点击区域 */
+    .wish-btn {
+        padding: 10px;
+        min-height: 50px;
+    }
+    
+    /* 禁用悬停效果 */
+    .wish-btn:hover {
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* 增加卡片点击反馈 */
+    .card:active {
+        transform: scale(0.95);
+    }
+}
+
+/* 卡片点击区域优化 */
+.card {
+    position: relative;
+    z-index: 2;
+}
+
+/* 确保卡片之间有足够的间距 */
+.card-box > * {
+    margin: 5px;
+}
+
+/* 卡片翻转优化 */
+@media (max-width: 768px) {
+    .card {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    
+    .card-front, .card-back {
+        backface-visibility: hidden;
+        transition: transform 0.6s;
+    }
+    
+    .card.active .card-back {
+        transform: rotateY(180deg);
+    }
+    
+    .card.active .card-front {
+        transform: rotateY(0deg);
+    }
+}
+
+/* 防止用户缩放页面 */
+@media (max-width: 768px) {
+    html {
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+        overscroll-behavior: none;
+        -webkit-overflow-scrolling: touch;
+    }
+}
