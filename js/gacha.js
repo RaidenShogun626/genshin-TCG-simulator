@@ -55,9 +55,14 @@ const cardList = {
         "images/Sacrificial_Fragments.png",
         "images/Sacrificial_Greatsword.png",
         "images/Sacrificial_Bow.png",
-        "images/Lithic_Spear.png"
+        "images/Lithic_Spear.png",
+        "images/Large_Hydro_Slime.png",
+        "images/Large_Cryo_Slime.png"
     ],
     'r': [
+        "images/Hydro_Slime.png",
+        "images/Cryo_Slime.png",
+        "images/Electro_Slime.png",
         "images/weapon_bow.png",
         "images/weapon_claymore.png",
         "images/weapon_book.png",
