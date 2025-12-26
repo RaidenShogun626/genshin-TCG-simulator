@@ -1,4 +1,4 @@
-// 1. 基础配置（保持不变）
+
 const cardList = {
     'ssr': [
         "images/Venti.png",
