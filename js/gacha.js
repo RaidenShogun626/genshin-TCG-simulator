@@ -142,8 +142,23 @@ function createCard(isTenthWish = false) {
     card.className = `card ${rarity}`;
     card.dataset.rarity = rarity;
 
+let cardBackClass;
+    switch(rarity) {
+        case "ssr":
+            cardBackClass = "ssr-card-back";
+            break;
+        case "sr":
+            cardBackClass = "sr-card-back";
+            break;
+        case "r":
+            cardBackClass = "r-card-back";
+            break;
+        default:
+            cardBackClass = "r-card-back"; // 默认使用R卡背
+}
+
     // 根据稀有度添加不同的声音效果
-    let raritySound;
+let raritySound;
     switch(rarity) {
         case "ssr":
             raritySound = "ssrSound";
@@ -156,11 +171,11 @@ function createCard(isTenthWish = false) {
             break;
         default:
             raritySound = "cardFlip";
-    }
+}
     card.dataset.sound = raritySound;
 
-    card.innerHTML = `
-        <div class="card-back"></div>
+card.innerHTML = `
+        <div class="${cardBackClass}"></div>
         <div class="card-front" style="background-image: url(${cardImg})"></div>`;
 
     // 添加卡片点击翻转效果

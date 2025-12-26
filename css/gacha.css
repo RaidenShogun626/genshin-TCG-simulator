@@ -17,9 +17,19 @@ body { min-height: 100vh; overflow: hidden; }
     width: 150px;
     height: 220px;
 }
-.card-back {
+
+.r-card-back {
     background-image: url("../images/card_back.png");
 }
+
+.sr-card-back {
+    background-image: url("../images/Neko_card_back.png");
+}
+
+.ssr-card-back {
+    background-image: url("../images/传说牌背.png");
+}
+
 .animate-roll {
     animation-name: flip;
     transform-origin: 50% 0;
@@ -151,6 +161,7 @@ body { min-height: 100vh; overflow: hidden; }
     opacity: 0.9;
     transform: scale(1.02);
     transition: all 0.2s;
+}
 .wish-btn:active {
         transform: scale(0.98);
 }
@@ -225,7 +236,7 @@ body {
 }
 
 /* 卡背+卡面（翻牌核心：backface-visibility） */
-.card-back, .card-front {
+.r-card-back, .sr-card-back, .ssr-card-back, .card-front {
     background-size: 100% 100% !important;
     position: absolute; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -233,10 +244,21 @@ body {
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 /* 卡背（原神默认祈愿卡背） */
-.card-back {
+.ssr-card-back{
+    background: url("../images/传说牌背.png") center/cover;
+    transform: rotateY(0deg);
+}
+
+.sr-card-back{
+    background: url("../images/Neko_card_back.png") center/cover;
+    transform: rotateY(0deg);
+}
+
+.r-card-back {
     background: url("../images/card_back.png") center/cover;
     transform: rotateY(0deg);
 }
+
 /* 卡面：默认翻转隐藏 */
 .card-front {
     background: #fff center/cover;
@@ -321,5 +343,4 @@ body {
 
 .skip-btn.show {
     display: block;
-}
 }
