@@ -1,3 +1,11 @@
+let isGachaInProgress = false;
+let animationQueue = [];
+
+function gacha(count = 1) { 
+    if (isGachaInProgress) {
+        console.log("抽卡进行中，请稍候...");
+        return;
+    }
 
 const cardList = {
     'ssr': [
