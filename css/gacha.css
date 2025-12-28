@@ -84,8 +84,74 @@ body { min-height: 100vh; overflow: hidden; }
     display: block;
 }
 
+#WishICO {
+    position: fixed;
+    top: 15px;
+    left: 30px;
+    width: 50px;
+    height: auto;
+    z-index: 100;
+    opacity: 0.9;
+    filter:
+            brightness(1.05)
+            contrast(1.1)
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+body::before {
+    content: "祈愿";
+    position: fixed;
+    top: 25px;
+    left: 100px;
+
+    color: #E2DFD5;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'HYWenHei', 'Microsoft YaHei', sans-serif;
+    z-index: 101;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wish-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    z-index: 100;
+}
+
+.wish-footer .footer-btn {
+    /* 小圆形按钮 */
+    min-width: 70px;
+    height: 28px;
+    padding: 0 15px;
+    border-radius: 17px; /* 高度的一半，形成圆形按钮 */
+
+    /* 颜色 */
+    background: rgba(226, 223, 213);
+    border: 1px solid rgba(226, 223, 213, 0.35);
+    color: #000;
+
+    font-size: 13px;
+    font-weight: 520;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.wish-footer .footer-btn:hover {
+    background: rgba(226, 223, 213);
+    border-color: #E2DFD5;
+}
+
 .close-Wish {
-    /* 保持原有样式 */
+
     background-image: url("../images/gacha_bg/exit.png");
     background-size: 100% 100%;
     background-position: center;
@@ -98,6 +164,7 @@ body { min-height: 100vh; overflow: hidden; }
     border: none;
     padding: 0;
     cursor: pointer;
+    unicode-bidi:isolate;
 
     display: flex;
     align-items: center;
@@ -144,7 +211,7 @@ body { min-height: 100vh; overflow: hidden; }
     width: 240px;
     height: 60px;
 
-    color: #d4bc8f;
+    color: #a49a90;
     font-size: 18px;
     font-weight: 500;
 
