@@ -147,6 +147,7 @@ function gacha(count = 1) {
                 newCard.addEventListener('animationend', () => {
                     setTimeout(function () {
                         isGachaEnabled = true;
+                        console.log('last-pity-count', pityCounter)
                     }, 0)
                 })
             }
@@ -183,7 +184,6 @@ singleBtn.addEventListener("click", () => {
 
 tenBtn.addEventListener("click", () => {
     if (!isGachaEnabled) {
-        console.log('已经在抽了，你这个傻逼，要累死本大爷！')
         return;
     }
     isGachaEnabled = false;
