@@ -72,7 +72,83 @@ window.onload = function() {
             }, 300);
         });
     }
+
+    const backBtn = document.querySelector('.book-close')
+    backBtn?.addEventListener('click', function() {
+        location.href = './index.html';
+    })
+
+    const wishTable = document.querySelector('#wish-table')
+    if (wishTable) {
+        const wishData = JSON.parse(
+            sessionStorage[RecordName]
+        );
+        const tBody = wishTable.querySelector('tbody')
+
+        let currentPageIndex = 0;
+        const previousButton = document.querySelector(`[data-action="prev"]`)
+        const nextButton = document.querySelector(`[data-action="next"]`)
+
+        previousButton.setAttribute('disabled', 'disabled');
+        if (wishData.length < 5) {
+            nextButton.setAttribute('disabled', 'disabled');
+        } else {
+            nextButton.removeAttribute('disabled');
+        }
+        const totalPages = document.querySelector(".total-pages")
+        const currentPages = document.querySelector(".current-page")
+
+        const shiftPage = function (index) {
+            tBody.innerHTML = '';
+            const items = wishData.slice(
+                5 * currentPageIndex,
+                (currentPageIndex + 1) * 5,
+            )
+            const fragement = document.createDocumentFragment();
+            items.forEach(wishItem => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${wishItem.type}</td><td>${wishItem.name}</td><td>${wishItem.rarity}</td><td>${new Date().toLocaleString()}</td>`;
+                fragement.appendChild(tr);
+            })
+            tBody.appendChild(fragement);
+            currentPages.innerHTML = `${currentPageIndex+1}`
+            if (currentPageIndex === 0) {
+                previousButton.setAttribute('disabled', 'disabled');
+                nextButton.removeAttribute('disabled');
+            }
+            if (currentPageIndex >= Math.round(wishData.length / 5) - 1) {
+                nextButton.setAttribute('disabled', 'disabled');
+                previousButton.removeAttribute('disabled');
+            }
+        }
+        shiftPage(
+            currentPageIndex
+        )
+        totalPages.innerHTML = `${Math.round(wishData.length / 5)}`;
+        if (previousButton) {
+            previousButton.onclick = function () {
+                if (currentPageIndex === 0) {
+                    return;
+                }
+                currentPageIndex--;
+                nextButton.removeAttribute('disabled');
+                shiftPage(currentPageIndex);
+            }
+        }
+        if (nextButton) {
+            nextButton.onclick = function () {
+                if (currentPageIndex >= Math.round(wishData.length / 5) - 1) {
+                    return;
+                }
+                previousButton.removeAttribute('disabled');
+                currentPageIndex++;
+                shiftPage(currentPageIndex);
+            }
+        }
+    }
 };
+
+const RecordName = "RecordWishes";
 
 // 播放历史记录点击音效
 function playHistorySound() {

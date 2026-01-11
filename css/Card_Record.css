@@ -37,7 +37,7 @@ body {
 .wish-container {
     position: relative;
     width: 820px;
-    height: 450px;
+    height: 600px;
     margin: 0 auto;
     border-radius: 8px;
     overflow: visible;
@@ -72,7 +72,7 @@ body {
     padding: 13px 28px; /* 减小上边距，让内容往上移 */
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background: transparent;
 }
 
@@ -85,10 +85,9 @@ body {
 }
 
 .title {
-    font-size: 22px; /* 稍微减小字体 */
+    font-size: 18px; /* 稍微减小字体 */
     color: #595252;
-    margin-bottom: 8px; /* 减小间距 */
-    text-shadow: none;
+    margin-top: 38px;
     text-align: left;
 }
 
@@ -192,9 +191,6 @@ body {
     text-align: left;
     font-weight: 600;
     text-shadow: none;
-    position: sticky;
-    top: 0;
-    z-index: 10;
     border-bottom: 1px solid rgba(120, 100, 70, 0.5); /* 只保留底部边框 */
 }
 
@@ -210,6 +206,7 @@ body {
 .wish-table td {
     padding: 6px 4px;
     text-shadow: none;
+    color: #8D8D8C;
 }
 
 .wish-table tbody tr:hover {
@@ -263,7 +260,7 @@ body {
     font-size: 10px;
 }
 
-.rarity-5 {
+.rarity-5★ {
     color: #BD6932;
     text-shadow: none;
     font-weight: bold;
@@ -280,7 +277,7 @@ body {
 
 .book-close {
     position: absolute;
-    top: 2px;          /* 垂直位置：让按钮在缺口中间 */
+    top: 67px;          /* 垂直位置：让按钮在缺口中间 */
     right: -28px;        /* 水平位置：从右侧数12px */
     z-index: 10000 !important;
     width: 35px;        /* 匹配缺口宽度 */
@@ -317,13 +314,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-top: 8px; /* 减小间距 */
+    gap: 13px;
+    margin-top: -28px; /* 减小间距 */
     padding: 6px 0; /* 减小内边距 */
     flex-shrink: 0;
-    background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    border: 1px solid #EDE8E0;
 }
 
 .page-btn {

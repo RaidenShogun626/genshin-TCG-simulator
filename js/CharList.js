@@ -1,75 +1,75 @@
 const CharList = {
     'ssr': [
-        { path: "images/Venti.png", name: "温迪", type: "character", rarity: 5 },
-        { path: "images/char_zhongli.png", name: "钟离", type: "character", rarity: 5 },
-        { path: "images/char_raiden.png", name: "雷电将军", type: "character", rarity: 5 },
-        { path: "images/char_nahida.png", name: "纳西妲", type: "character", rarity: 5 },
-        { path: "images/Klee.png", name: "可莉", type: "character", rarity: 5 },
-        { path: "images/Jean.png", name: "琴", type: "character", rarity: 5 },
-        { path: "images/Diluc.png", name: "迪卢克", type: "character", rarity: 5 },
-        { path: "images/Eula.png", name: "优菈", type: "character", rarity: 5 },
-        { path: "images/Mona.png", name: "莫娜", type: "character", rarity: 5 },
-        { path: "images/Tartaglia.png", name: "达达利亚", type: "character", rarity: 5 },
-        { path: "images/Xiao.png", name: "魈", type: "character", rarity: 5 },
-        { path: "images/Shenhe.png", name: "申鹤", type: "character", rarity: 5 },
-        { path: "images/Hu_Tao.png", name: "胡桃", type: "character", rarity: 5 },
-        { path: "images/Keqing.png", name: "刻晴", type: "character", rarity: 5 },
-        { path: "images/Ganyu.png", name: "甘雨", type: "character", rarity: 5 },
-        { path: "images/Tighnari.png", name: "提纳里", type: "character", rarity: 5 },
-        { path: "images/Cyno.png", name: "赛诺", type: "character", rarity: 5 },
-        { path: "images/Yae_Miko.png", name: "八重神子", type: "character", rarity: 5 },
-        { path: "images/Kamizato_Ayaka.png", name: "神里绫华", type: "character", rarity: 5 },
-        { path: "images/Kamizato_Ayato.png", name: "神里绫人", type: "character", rarity: 5 },
-        { path: "images/Yoimiya.png", name: "宵宫", type: "character", rarity: 5 },
-        { path: "images/Sangonomiya_Kokomi.png", name: "珊瑚宫心海", type: "character", rarity: 5 },
-        { path: "images/Maguu_Kenki.png", name: "魔偶剑鬼", type: "enemy", rarity: 5 },
-        { path: "images/Rhodeia_of_Loch.png", name: "纯水精灵·洛蒂娅", type: "enemy", rarity: 5 },
-        { path: "images/Gold_Lawachurls.png", name: "黄金王兽", type: "enemy", rarity: 5 },
-        { path: "images/Jadeplume_Terrorshroom.png", name: "翠翎恐蕈", type: "enemy", rarity: 5 },
-        { path: "images/Agents.png", name: "愚人众·债务处理人", type: "enemy", rarity: 5 },
-        { path: "images/Mirror_Maiden.png", name: "愚人众·藏镜仕女", type: "enemy", rarity: 5 },
-        { path: "images/Amos_bow.png", name: "阿莫斯之弓", type: "weapon", rarity: 5 },
-        { path: "images/A_Thousand_Floating_Dreams.png", name: "千夜浮梦", type: "weapon", rarity: 5 },
-        { path: "images/Engulfing_Lightning.png", name: "薙草之稻光", type: "weapon", rarity: 5 },
-        { path: "images/Skyward_Atlas.png", name: "天空之卷", type: "weapon", rarity: 5 },
-        { path: "images/Skyward_Harp.png", name: "天空之翼", type: "weapon", rarity: 5 },
-        { path: "images/Skyward_Spine.png", name: "天空之脊", type: "weapon", rarity: 5 },
-        { path: "images/Wolf_Gravestone.png", name: "狼的末路", type: "weapon", rarity: 5 }
+        { path: "images/Venti.png", name: "温迪", type: "角色", rarity: "5★" },
+        { path: "images/char_zhongli.png", name: "钟离", type: "角色", rarity: "5★" },
+        { path: "images/char_raiden.png", name: "雷电将军", type: "角色", rarity: "5★" },
+        { path: "images/char_nahida.png", name: "纳西妲", type: "角色", rarity: "5★" },
+        { path: "images/Klee.png", name: "可莉", type: "角色", rarity: "5★" },
+        { path: "images/Jean.png", name: "琴", type: "角色", rarity: "5★" },
+        { path: "images/Diluc.png", name: "迪卢克", type: "角色", rarity: "5★" },
+        { path: "images/Eula.png", name: "优菈", type: "角色", rarity: "5★" },
+        { path: "images/Mona.png", name: "莫娜", type: "角色", rarity: "5★" },
+        { path: "images/Tartaglia.png", name: "达达利亚", type: "角色", rarity: "5★" },
+        { path: "images/Xiao.png", name: "魈", type: "角色", rarity: "5★" },
+        { path: "images/Shenhe.png", name: "申鹤", type: "角色", rarity: "5★" },
+        { path: "images/Hu_Tao.png", name: "胡桃", type: "角色", rarity: "5★" },
+        { path: "images/Keqing.png", name: "刻晴", type: "角色", rarity: "5★" },
+        { path: "images/Ganyu.png", name: "甘雨", type: "角色", rarity: "5★" },
+        { path: "images/Tighnari.png", name: "提纳里", type: "角色", rarity: "5★" },
+        { path: "images/Cyno.png", name: "赛诺", type: "角色", rarity: "5★" },
+        { path: "images/Yae_Miko.png", name: "八重神子", type: "角色", rarity: "5★" },
+        { path: "images/Kamizato_Ayaka.png", name: "神里绫华", type: "角色", rarity: "5★" },
+        { path: "images/Kamizato_Ayato.png", name: "神里绫人", type: "角色", rarity: "5★" },
+        { path: "images/Yoimiya.png", name: "宵宫", type: "角色", rarity: "5★" },
+        { path: "images/Sangonomiya_Kokomi.png", name: "珊瑚宫心海", type: "角色", rarity: "5★" },
+        { path: "images/Maguu_Kenki.png", name: "魔偶剑鬼", type: "魔物", rarity: "5★" },
+        { path: "images/Rhodeia_of_Loch.png", name: "纯水精灵·洛蒂娅", type: "魔物", rarity: "5★" },
+        { path: "images/Gold_Lawachurls.png", name: "黄金王兽", type: "魔物", rarity: "5★" },
+        { path: "images/Jadeplume_Terrorshroom.png", name: "翠翎恐蕈", type: "魔物", rarity: "5★" },
+        { path: "images/Agents.png", name: "愚人众·债务处理人", type: "魔物", rarity: "5★" },
+        { path: "images/Mirror_Maiden.png", name: "愚人众·藏镜仕女", type: "魔物", rarity: "5★" },
+        { path: "images/Amos_bow.png", name: "阿莫斯之弓", type: "武器", rarity: "5★" },
+        { path: "images/A_Thousand_Floating_Dreams.png", name: "千夜浮梦", type: "武器", rarity: "5★" },
+        { path: "images/Engulfing_Lightning.png", name: "薙草之稻光", type: "武器", rarity: "5★" },
+        { path: "images/Skyward_Atlas.png", name: "天空之卷", type: "武器", rarity: "5★" },
+        { path: "images/Skyward_Harp.png", name: "天空之翼", type: "武器", rarity: "5★" },
+        { path: "images/Skyward_Spine.png", name: "天空之脊", type: "武器", rarity: "5★" },
+        { path: "images/Wolf_Gravestone.png", name: "狼的末路", type: "武器", rarity: "5★" }
     ],
     'sr': [
-        { path: "images/Kaeya.png", name: "凯亚", type: "character", rarity: 4 },
-        { path: "images/Amber.png", name: "安柏", type: "character", rarity: 4 },
-        { path: "images/Barbara.png", name: "芭芭拉", type: "character", rarity: 4 },
-        { path: "images/Noelle.png", name: "诺艾尔", type: "character", rarity: 4 },
-        { path: "images/Diona.png", name: "迪奥娜", type: "character", rarity: 4 },
-        { path: "images/Fischl.png", name: "菲谢尔", type: "character", rarity: 4 },
-        { path: "images/Sucrose.png", name: "砂糖", type: "character", rarity: 4 },
-        { path: "images/Razor.png", name: "雷泽", type: "character", rarity: 4 },
-        { path: "images/char_bennett.png", name: "班尼特", type: "character", rarity: 4 },
-        { path: "images/Ningguang.png", name: "凝光", type: "character", rarity: 4 },
-        { path: "images/Beidou.png", name: "北斗", type: "character", rarity: 4 },
-        { path: "images/char_xingqiu.png", name: "行秋", type: "character", rarity: 4 },
-        { path: "images/Chongyun.png", name: "重云", type: "character", rarity: 4 },
-        { path: "images/char_xiangling.png", name: "香菱", type: "character", rarity: 4 },
-        { path: "images/Collei.png", name: "柯莱", type: "character", rarity: 4 },
-        { path: "images/Kujo_Sara.png", name: "九条裟罗", type: "character", rarity: 4 },
-        { path: "images/Sacrificial_Sword.png", name: "祭礼剑", type: "weapon", rarity: 4 },
-        { path: "images/Sacrificial_Fragments.png", name: "祭礼残章", type: "weapon", rarity: 4 },
-        { path: "images/Sacrificial_Greatsword.png", name: "祭礼大剑", type: "weapon", rarity: 4 },
-        { path: "images/Sacrificial_Bow.png", name: "祭礼弓", type: "weapon", rarity: 4 },
-        { path: "images/Lithic_Spear.png", name: "千岩长枪", type: "weapon", rarity: 4 },
-        { path: "images/Large_Cryo_Slime.png", name: "大型冰史莱姆", type: "enemy", rarity: 4 },
-        { path: "images/Large_Hydro_Slime.png", name: "大型水史莱姆", type: "enemy", rarity: 4 }
+        { path: "images/Kaeya.png", name: "凯亚", type: "角色", rarity: "4★" },
+        { path: "images/Amber.png", name: "安柏", type: "角色", rarity: "4★" },
+        { path: "images/Barbara.png", name: "芭芭拉", type: "角色", rarity: "4★" },
+        { path: "images/Noelle.png", name: "诺艾尔", type: "角色", rarity: "4★" },
+        { path: "images/Diona.png", name: "迪奥娜", type: "角色", rarity: "4★" },
+        { path: "images/Fischl.png", name: "菲谢尔", type: "角色", rarity: "4★" },
+        { path: "images/Sucrose.png", name: "砂糖", type: "角色", rarity: "4★" },
+        { path: "images/Razor.png", name: "雷泽", type: "角色", rarity: "4★" },
+        { path: "images/char_bennett.png", name: "班尼特", type: "角色", rarity: "4★" },
+        { path: "images/Ningguang.png", name: "凝光", type: "角色", rarity: "4★" },
+        { path: "images/Beidou.png", name: "北斗", type: "角色", rarity: "4★" },
+        { path: "images/char_xingqiu.png", name: "行秋", type: "角色", rarity: "4★" },
+        { path: "images/Chongyun.png", name: "重云", type: "角色", rarity: "4★" },
+        { path: "images/char_xiangling.png", name: "香菱", type: "角色", rarity: "4★" },
+        { path: "images/Collei.png", name: "柯莱", type: "角色", rarity: "4★" },
+        { path: "images/Kujo_Sara.png", name: "九条裟罗", type: "角色", rarity: "4★" },
+        { path: "images/Sacrificial_Sword.png", name: "祭礼剑", type: "武器", rarity: "4★" },
+        { path: "images/Sacrificial_Fragments.png", name: "祭礼残章", type: "武器", rarity: "4★" },
+        { path: "images/Sacrificial_Greatsword.png", name: "祭礼大剑", type: "武器", rarity: "4★" },
+        { path: "images/Sacrificial_Bow.png", name: "祭礼弓", type: "武器", rarity: "4★" },
+        { path: "images/Lithic_Spear.png", name: "千岩长枪", type: "武器", rarity: "4★" },
+        { path: "images/Large_Cryo_Slime.png", name: "大型冰史莱姆", type: "魔物", rarity: "4★" },
+        { path: "images/Large_Hydro_Slime.png", name: "大型水史莱姆", type: "魔物", rarity: "4★" }
     ],
     'r': [
-        { path: "images/Hydro_Slime.png", name: "水史莱姆", type: "enemy", rarity: 3 },
-        { path: "images/Cryo_Slime.png", name: "冰史莱姆", type: "enemy", rarity: 3 },
-        { path: "images/Electro_Slime.png", name: "雷史莱姆", type: "enemy", rarity: 3 },
-        { path: "images/weapon_bow.png", name: "猎弓", type: "weapon", rarity: 3 },
-        { path: "images/weapon_claymore.png", name: "训练大剑", type: "weapon", rarity: 3 },
-        { path: "images/weapon_book.png", name: "讨龙英杰谭", type: "weapon", rarity: 3 },
-        { path: "images/Traverler_Sword.png", name: "旅行剑", type: "weapon", rarity: 3 },
-        { path: "images/White_Tassel.png", name: "白缨枪", type: "weapon", rarity: 3 }
+        { path: "images/Hydro_Slime.png", name: "水史莱姆", type: "魔物", rarity: "3★" },
+        { path: "images/Cryo_Slime.png", name: "冰史莱姆", type: "魔物", rarity: "3★" },
+        { path: "images/Electro_Slime.png", name: "雷史莱姆", type: "魔物", rarity: "3★" },
+        { path: "images/weapon_bow.png", name: "猎弓", type: "武器", rarity: "3★" },
+        { path: "images/weapon_claymore.png", name: "训练大剑", type: "武器", rarity: "3★" },
+        { path: "images/weapon_book.png", name: "讨龙英杰谭", type: "武器", rarity: "3★" },
+        { path: "images/Traverler_Sword.png", name: "旅行剑", type: "武器", rarity: "3★" },
+        { path: "images/White_Tassel.png", name: "白缨枪", type: "武器", rarity: "3★" }
     ]
 };
 
@@ -150,77 +150,45 @@ function getCardNameFromPath(path) {
     return nameMap[fileName] || fileName;
 }
 
-// 添加：根据图片路径判断卡牌类型
-function getCardTypeFromPath(path) {
-    const fileName = path.split('/').pop();
-
-    if (fileName.includes('weapon_') ||
-        fileName.includes('_bow') ||
-        fileName.includes('_sword') ||
-        fileName.includes('Sword') ||
-        fileName.includes('Bow') ||
-        fileName.includes('_book') ||
-        fileName.includes('Tassel') ||
-        fileName.includes('Spear') ||
-        fileName.includes('Gravestone') ||
-        fileName.includes('Lightning') ||
-        fileName.includes('Atlas') ||
-        fileName.includes('Harp') ||
-        fileName.includes('Spine') ||
-        fileName.includes('Dreams')) {
-        return 'weapon';
-    } else if (fileName.includes('Slime') ||
-        fileName.includes('Lawachurl') ||
-        fileName.includes('Terrorshroom') ||
-        fileName.includes('Agent') ||
-        fileName.includes('Maiden') ||
-        fileName.includes('Maguu') ||
-        fileName.includes('Rhodeia')) {
-        return 'enemy';
-    } else {
-        return 'character';
-    }
-}
-
 // 添加：根据文件夹判断稀有度
 function getCardRarityFromPath(path) {
     if (path.includes('images/') && cardList.ssr.includes(path)) {
-        return 5;
+        return "5★";
     } else if (path.includes('images/') && cardList.sr.includes(path)) {
-        return 4;
+        return "4★";
     } else if (path.includes('images/') && cardList.r.includes(path)) {
-        return 3;
+        return "3★";
     }
-    return 3; // 默认3星
+    return "3★"; // 默认"3★"星
 }
 
 // 添加：获取随机卡牌（单抽）
 function getRandomCard() {
     const random = Math.random() * 1000;
 
-    if (random < 6) { // 0.6% 5星
+    if (random < 6) { // 0.6% "5★"星
         const path = cardList.ssr[Math.floor(Math.random() * cardList.ssr.length)];
         return {
             path: path,
             name: getCardNameFromPath(path),
             type: getCardTypeFromPath(path),
-            rarity: 5
+            rarity: "5★"
         };
-    } else if (random < 57) { // 5.1% 4星
+    } else if (random < "5★") { // "5★".1% "4★"星
         const path = cardList.sr[Math.floor(Math.random() * cardList.sr.length)];
         return {
             path: path,
             name: getCardNameFromPath(path),
             type: getCardTypeFromPath(path),
-            rarity: 4
+            rarity: "4★"
         };
-    } else { // 94.3% 3星
+    } else { // 9"4★"."3★"% "3★"星
         const path = cardList.r[Math.floor(Math.random() * cardList.r.length)];
         return {
             path: path,
             name: getCardNameFromPath(path),
             type: getCardTypeFromPath(path),
-            rarity: 3
+            rarity: "3★"
         };
     }
 }
@@ -228,24 +196,24 @@ function getRandomCard() {
 // 添加：获取10连抽结果
 function getTenPullResults() {
     const results = [];
-    let has4Star = false;
+    let has4Start = false;
 
     for (let i = 0; i < 10; i++) {
         let card;
 
-        // 第9抽保底4星
-        if (i === 8 && !has4Star) {
+        // 第9抽保底"4★"星
+        if (i === 8 && !has4Start) {
             const path = cardList.sr[Math.floor(Math.random() * cardList.sr.length)];
             card = {
                 path: path,
                 name: getCardNameFromPath(path),
                 type: getCardTypeFromPath(path),
-                rarity: 4
+                rarity: "4★"
             };
-            has4Star = true;
+            has4Start = true;
         } else {
             card = getRandomCard();
-            if (card.rarity >= 4) has4Star = true;
+            if (card.rarity >= "4★") has4Start = true;
         }
 
         results.push(card);

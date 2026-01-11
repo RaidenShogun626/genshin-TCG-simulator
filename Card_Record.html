@@ -33,6 +33,7 @@
             </div>
         </div>
 
+        <audio id="click-sound" src="./audio/Click.wav"></audio>
         <!-- 说明文字 -->
         <div class="note">
             ※可在本页面查询最近6个月祈愿记录，祈愿记录查询有1小时左右延迟。若无法提前满足请求，以下祈愿时间仅将对应行者当前所在服务的时间；如您当前所在地区与服务器时区存在差异，请根据所有目的设定。备注为新希望的"天空岛(UTC+8)，世界树(UTC+8)，TW, HK,MO(UTC+8)，Asia(UTC+8)，Europe(UTC+1)，America(UTC-5)"
@@ -40,7 +41,7 @@
 
         <!-- 表格容器 -->
         <div class="table-container">
-            <table class="wish-table">
+            <table class="wish-table" id="wish-table">
                 <thead>
                 <tr>
                     <th>类型</th>
@@ -50,7 +51,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
@@ -78,9 +78,7 @@
             <button class="page-btn" data-action="next">
                 下一页 <span class="arrow">›</span>
             </button>
-            <button class="book-close-btn">
-                <img src="./images/gacha_bg/book-exit.png" alt="关闭" class="book-close">
-            </button>
+            <img src="./images/gacha_bg/book-exit.png" alt="关闭" class="book-close">
         </div>
 
     </div>

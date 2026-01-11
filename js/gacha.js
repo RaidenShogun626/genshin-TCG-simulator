@@ -65,11 +65,17 @@ function getCardRarity(isTenthWish = false) {
 
     return "r";
 }
-
 // 4. 创建卡片函数
 function createCard(isTenthWish = false) {
     const rarity = getCardRarity(isTenthWish);
-    const cardImg = cardList[rarity][Math.floor(Math.random() * cardList[rarity].length)];
+    const cardItem = CharList[rarity][Math.floor(Math.random() * cardList[rarity].length)];
+    if (!sessionStorage[RecordName]) {
+        sessionStorage[RecordName] = "[]";
+    }
+    const itemsNow = JSON.parse(sessionStorage[RecordName]);
+    itemsNow.push(cardItem);
+    sessionStorage[RecordName] = JSON.stringify(itemsNow)
+    const cardImg = cardItem.path;
 
     const card = document.createElement("div");
     card.className = `card ${rarity}`;
@@ -87,7 +93,7 @@ function createCard(isTenthWish = false) {
             cardBackClass = "r-card-back";
             break;
         default:
-            cardBackClass = "r-card-back"; // 默认使用R卡背
+            cardBackClass = "r-card-back";
     }
 
     // 根据稀有度添加不同的声音效果
@@ -274,27 +280,3 @@ if (skipBtn) {
         }
     });
 }
-
-// 打开祈愿记录页面窗口
-// let wishRecordWindow = null;
-
-// 获取历史记录按钮并添加点击事件（在DOMContentLoaded中添加）
-// const historyBtn = document.querySelector('.footer-btn:nth-child(3)');
-// if (historyBtn) {
-//     historyBtn.addEventListener('click', openWishRecordPage);
-// }
-
-// function openWishRecordPage() {
-//     // 先检查窗口是否已经存在且未关闭
-//     if (wishRecordWindow && !wishRecordWindow.closed) {
-//         wishRecordWindow.focus();
-//         return;
-//     }
-//
-//     // 如果窗口不存在或已关闭，重新打开
-//     wishRecordWindow = window.open(
-//         './Card_Record.html',
-//         'genshinWishRecord_' + Date.now(),
-//         'width=900,height=600,scrollbars=yes,resizable=yes'
-//     );
-// }
