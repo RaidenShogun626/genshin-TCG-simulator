@@ -124,19 +124,18 @@ body::before {
 }
 
 .wish-footer .footer-btn {
-    /* 小圆形按钮 */
+
     min-width: 70px;
     height: 28px;
     padding: 0 15px;
-    border-radius: 17px; /* 高度的一半，形成圆形按钮 */
+    border-radius: 17px;
 
-    /* 颜色 */
     background: rgba(226, 223, 213);
     border: 1px solid rgba(226, 223, 213, 0.35);
-    color: #000;
+    color: #363D51;
 
     font-size: 13px;
-    font-weight: 520;
+    font-weight: 520; /*粗字体调整*/
 
     display: flex;
     align-items: center;
@@ -151,7 +150,6 @@ body::before {
 }
 
 .close-Wish {
-
     background-image: url("../images/gacha_bg/exit.png");
     background-size: 100% 100%;
     background-position: center;
@@ -170,11 +168,10 @@ body::before {
     align-items: center;
     justify-content: center;
 
-    /* 添加以下定位样式 */
     position: fixed;
-    top: 10px;      /* 距离顶部距离 */
-    right: 10px;    /* 距离右侧距离 */
-    z-index: 1000;  /* 确保按钮在最上层 */
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
 }
 
 .wish-btn:hover {
@@ -186,12 +183,11 @@ body::before {
     transform: scale(0.98);
 }
 
-/* 抽卡容器 */
 .gacha-container {
     width: 100%; padding: 20px;
     display: flex; flex-direction: column; align-items: center;
 }
-/* 修改按钮容器样式（定位到右下角） */
+
 #wish-container {
     position: fixed;
     right: 100px;
@@ -259,7 +255,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* 卡片区：十连横向排列 */
 .card-box {
     position: fixed;
     top: 50%;
@@ -271,9 +266,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 12px;
-
-    /* 如果想让卡片从上到下排列，可以使用flex-direction */
-    /* flex-direction: column; */
 
     background-color: transparent;
     z-index: 5;
@@ -336,10 +328,9 @@ body {
 .card.active .card-back { transform: rotateY(180deg); }
 .card.active .card-front { transform: rotateY(0deg); }
 
-/* 稀有度特效（原版光影） */
 /* 5星金光 */
 .ssr.card {
-    border:3px solid #ffd700 !important;
+    border:3px solid #BD6932 !important;
     box-shadow:
             0 0 20px #ffd700,
             0 0 40px #FFF07E,
@@ -362,14 +353,14 @@ body {
 
 /* 4星蓝光 */
 .sr.card {
-    border:3px solid rgb(212,135,249) !important;
+    border:3px solid #A256E1 !important;
     box-shadow:
             0 0 15px rgb(212, 135, 249),
             0 0 30px rgb(201, 159, 250);
 }
 
 .r.card{
-    border:3px solid #4EBFFC !important;
+    border:3px solid #19a0ea !important;
     box-shadow:
             0 0 15px rgba(78, 191, 252,0.5),
             0 0 30px rgba(78, 191, 252,0.3),
@@ -396,18 +387,298 @@ body {
 /* 跳过按钮样式 */
 .skip-btn {
     position: fixed;
-    top: 2px;
-    right: 2px;
-    padding: 8px 16px;
-    background: rgba(0,0,0,0);
-    color: white;
+    top: 20px;
+    right: 60px;
+
+    /* 无边框无背景 */
+    background: none;
     border: none;
-    border-radius: 4px;
+
+    /* 文字样式 */
+    color: rgba(226, 223, 213, 0.6);
+    font-size: 13px;
+    font-weight: 300;
+    font-family: 'HYWenHei', 'Microsoft YaHei', sans-serif;
+
+    /* 布局 */
     cursor: pointer;
-    z-index: 20;
+    z-index: 1000;
     display: none;
+    padding: 4px 0;
+    letter-spacing: 0.5px;
+
+    /* 过渡效果 */
+    transition: all 0.2s ease;
 }
 
+/* 实心三角形在文字右边 */
+.skip-btn::after {
+    content: " ▶"; /* 实心三角形 */
+    font-size: 11px; /* 比文字稍小 */
+    opacity: 0.6;
+    display: inline-block;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+
+/* 显示状态 */
 .skip-btn.show {
+    display: inline-block;
+}
+
+/* 悬停效果 */
+.skip-btn:hover {
+    color: rgba(226, 223, 213, 0.9);
+}
+
+.skip-btn:hover::after {
+    opacity: 1;
+    transform: translateX(3px); /* 三角形向右移动 */
+}
+
+/* 点击效果 */
+.skip-btn:active {
+    color: rgba(226, 223, 213, 1);
+}
+
+.skip-btn:active::after {
+    transform: translateX(5px); /* 点击时移动更多 */
+}
+
+/* 历史记录界面样式 */
+.history-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 30, 0.98);
+    backdrop-filter: blur(15px);
+    z-index: 20;
+    display: none; /* 默认隐藏 */
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.history-container.show {
     display: block;
+    opacity: 1;
+}
+
+.history-header {
+    position: sticky;
+    top: 0;
+    padding: 20px 40px;
+    background: rgba(26, 26, 46, 0.9);
+    border-bottom: 1px solid rgba(226, 223, 213, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.history-header h2 {
+    color: #E2DFD5;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.history-stats {
+    display: flex;
+    gap: 25px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+}
+
+.stat-value {
+    color: #E2DFD5;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    color: #B8B5B2;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.history-content {
+    padding: 30px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 历史记录时间线样式 */
+.history-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+    transition: background 0.2s;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item.ssr {
+    border-left-color: #BD6932;
+}
+
+.timeline-item.sr {
+    border-left-color: #A256E1;
+}
+
+.timeline-item.r {
+    border-left-color: #19a0ea;
+}
+
+.timeline-time {
+    color: #B8B5B2;
+    font-size: 13px;
+    min-width: 150px;
+}
+
+.timeline-card {
+    width: 80px;
+    height: 110px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-rarity {
+    color: #E2DFD5;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.timeline-item.ssr .timeline-rarity {
+    color: #ffd700;
+}
+
+.timeline-item.sr .timeline-rarity {
+    color: rgb(212, 135, 249);
+}
+
+.timeline-item.r .timeline-rarity {
+    color: #4EBFFC;
+}
+
+.history-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: #B8B5B2;
+    font-size: 16px;
+}
+
+/* 分组标题样式 */
+.session-header {
+    color: #E2DFD5;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 25px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(226, 223, 213, 0.1);
+}
+
+/* 卡片网格视图（备用） */
+.history-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.history-card {
+    width: 100px;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.history-card-rarity {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    padding: 4px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .history-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .history-stats {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .stat-item {
+        min-width: auto;
+    }
+
+    .history-content {
+        padding: 20px;
+    }
+
+    .timeline-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .timeline-time {
+        min-width: 100%;
+        order: 1;
+    }
+
+    .timeline-card {
+        order: 2;
+        width: 60px;
+        height: 85px;
+    }
+
+    .timeline-rarity {
+        order: 3;
+        min-width: auto;
+    }
 }

@@ -1,11 +1,9 @@
-// 1. 基础配置（保持不变）
-
-
-// 2. 核心DOM（保持不变）
+// 2. 核心DOM
 const cardBox = document.querySelector(".card-box");
 const singleBtn = document.getElementById("singleBtn");
 const tenBtn = document.getElementById("tenBtn");
 const currentWishItem = document.querySelector('.card-level');
+const skipBtn = document.getElementById("skipBtn"); // 添加跳过按钮
 
 // 2.5 全局保底计数器（必须在函数之前定义！）
 let pityCounter = {
@@ -147,9 +145,16 @@ function gacha(count = 1) {
                 newCard.addEventListener('animationend', () => {
                     setTimeout(function () {
                         isGachaEnabled = true;
-                        console.log('last-pity-count', pityCounter)
-                    }, 0)
-                })
+                        console.log('last-pity-count', pityCounter);
+
+                        // 如果是10连抽，显示跳过按钮
+                        if (count === 10) {
+                            setTimeout(() => {
+                                skipBtn.classList.add('show');
+                            }, 300);
+                        }
+                    }, 0);
+                });
             }
 
             // 根据稀有度播放特效音
@@ -189,4 +194,107 @@ tenBtn.addEventListener("click", () => {
     isGachaEnabled = false;
     soundManager.playSound("wishClick");
     gacha(10);
+    skipBtn.classList.add('show');
 });
+
+// === 跳过功能 ===
+
+// 存储当前是否正在跳过
+let isSkipping = false;
+
+// 跳过按钮点击事件
+if (skipBtn) {
+    skipBtn.addEventListener('click', function() {
+        if (isSkipping) return; // 防止重复点击
+
+        const allCards = document.querySelectorAll('.card:not(.active)');
+        if (allCards.length === 0) return;
+
+        isSkipping = true; // 标记正在跳过
+
+        // 记录需要翻开的卡片数量
+        let cardsToFlip = allCards.length;
+        let cardsFlipped = 0;
+
+        console.log('开始跳过，需要翻开的卡片数量:', cardsToFlip);
+
+        // 依次翻开所有卡片
+        allCards.forEach((card, index) => {
+            setTimeout(() => {
+                const subElement = card.firstElementChild;
+                if (subElement && !subElement.classList.contains('animate-roll')) {
+                    // 播放翻牌音效
+                    const raritySound = card.dataset.sound;
+                    if (raritySound) {
+                        soundManager.playSound(raritySound);
+                    }
+
+                    subElement.classList.add("animate-roll");
+
+                    // 使用动画结束事件
+                    const onAnimationEnd = () => {
+                        card.classList.add('active');
+                        cardsFlipped++;
+
+                        console.log('卡片翻完，已翻:', cardsFlipped, '/', cardsToFlip);
+
+                        // 检查是否所有卡片都翻完了
+                        if (cardsFlipped === cardsToFlip) {
+                            console.log('所有卡牌翻完，隐藏按钮');
+                            // 所有卡牌都翻完后才隐藏按钮
+                            setTimeout(() => {
+                                skipBtn.classList.remove('show');
+                                isSkipping = false; // 重置跳过状态
+                            }, 500); // 额外延迟，确保动画完全结束
+                        }
+                    };
+
+                    // 确保动画结束事件只绑定一次
+                    subElement.addEventListener('animationend', onAnimationEnd, { once: true });
+                } else {
+                    // 如果卡片已经翻开了，也计数
+                    cardsFlipped++;
+                    if (cardsFlipped === cardsToFlip) {
+                        console.log('所有卡片已翻开，隐藏按钮');
+                        setTimeout(() => {
+                            skipBtn.classList.remove('show');
+                            isSkipping = false;
+                        }, 500);
+                    }
+                }
+            }, index * 100); // 增加间隔时间
+        });
+    });
+
+    // 键盘空格键跳过
+    document.addEventListener('keydown', (event) => {
+        if (event.code === 'Space' && skipBtn.classList.contains('show') && !isSkipping) {
+            event.preventDefault();
+            skipBtn.click();
+        }
+    });
+}
+
+// 打开祈愿记录页面窗口
+// let wishRecordWindow = null;
+
+// 获取历史记录按钮并添加点击事件（在DOMContentLoaded中添加）
+// const historyBtn = document.querySelector('.footer-btn:nth-child(3)');
+// if (historyBtn) {
+//     historyBtn.addEventListener('click', openWishRecordPage);
+// }
+
+// function openWishRecordPage() {
+//     // 先检查窗口是否已经存在且未关闭
+//     if (wishRecordWindow && !wishRecordWindow.closed) {
+//         wishRecordWindow.focus();
+//         return;
+//     }
+//
+//     // 如果窗口不存在或已关闭，重新打开
+//     wishRecordWindow = window.open(
+//         './Card_Record.html',
+//         'genshinWishRecord_' + Date.now(),
+//         'width=900,height=600,scrollbars=yes,resizable=yes'
+//     );
+// }

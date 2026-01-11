@@ -1,0 +1,568 @@
+/* Card_Record.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "SimHei", sans-serif;
+    color: #e0e0e0;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 蓝天白云背景 - 铺满整个页面 */
+.sky-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/gacha_bg/mask.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* 主要容器 - 精确适配书本尺寸 */
+.wish-container {
+    position: relative;
+    width: 820px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: visible;
+    background-color: transparent;
+}
+
+/* 书的背景图 - 完整显示 */
+.book-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/gacha_bg/book-d6fb8ca7.webp');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.95;
+    border-radius: 8px;
+}
+
+/* 内容层 - 精确适配书本内部区域 */
+.content-overlay {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90%;
+    height: 85%;
+    padding: 13px 28px; /* 减小上边距，让内容往上移 */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: transparent;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4px; /* 减小间距 */
+    padding-bottom: 6px; /* 减小间距 */
+    border-bottom: 1px solid rgba(120, 100, 70, 0.5);
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 22px; /* 稍微减小字体 */
+    color: #595252;
+    margin-bottom: 8px; /* 减小间距 */
+    text-shadow: none;
+    text-align: left;
+}
+
+.wish-types {
+    font-size: 13px;
+    color: #e0e0e0;
+    text-shadow: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-bottom: 6px;
+}
+
+.pool-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ECDAB5;
+    padding: 5px 165px; /* 减小内边距 */
+    border-radius: 6px;
+    border: 1px solid rgba(120, 100, 70, 0.5);
+}
+
+.pool-select-wrapper label {
+    color: #595252;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pool-select {
+    padding: 5px 8px;
+    background: #FFF8E8;
+    border: 1px solid #ECDAB5;
+    border-radius: 4px;
+    color: #5B5453;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 280px; /* 减小宽度 */
+    text-align: center;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.pool-select:hover {
+    background: #5F6673;
+    border-color: #ffd166;
+    box-shadow: none;
+}
+
+.pool-select:focus {
+    outline: none;
+    border-color: #ffd166;
+    box-shadow: none;
+}
+
+.note {
+    font-size: 11px;
+    color: #8A8687;
+    line-height: 1.4;
+    margin-top: 4px; /* 减小间距 */
+    padding: 6px; /* 减小内边距 */
+    background: #EFEBE6;
+    border-radius: 4px;
+    text-shadow: none;
+    flex-shrink: 0;
+    margin-bottom: 6px; /* 增加与表格的间距 */
+}
+
+/* 修复表格边框问题 */
+.wish-table-wrapper {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-top: 2px;
+    border: 1px solid #D3BC8E;
+    background: #F6F1E7;
+}
+
+.wish-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: transparent; /* 改为透明背景 */
+    display: table; /* 恢复正常的表格布局 */
+}
+
+.wish-table thead {
+    display: table-header-group;
+}
+
+.wish-table thead tr {
+    background: #EDE1CA;
+}
+
+.wish-table th {
+    color: #5B5453;
+    padding: 8px 6px;
+    text-align: left;
+    font-weight: 600;
+    text-shadow: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(120, 100, 70, 0.5); /* 只保留底部边框 */
+}
+
+.wish-table tbody {
+    display: table-row-group;
+}
+
+.wish-table tbody tr {
+    height: 36px; /* 减小行高 */
+    border-bottom: 1px solid rgba(120, 100, 70, 0.2); /* 行间分隔线 */
+}
+
+.wish-table td {
+    padding: 6px 4px;
+    text-shadow: none;
+}
+
+.wish-table tbody tr:hover {
+    background: rgba(50, 45, 40, 0.3); /* 减小悬停透明度 */
+}
+
+/* 添加表格容器实现滚动 */
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 2px;
+    max-height: calc(5 * 36px + 38px); /* 5行 + 表头高度 */
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: rgba(120, 100, 70, 0.5);
+    border-radius: 2px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 100, 70, 0.7);
+}
+
+.type-weapon {
+    color: #8E8E8E;
+    font-weight: 600;
+    text-shadow: none;
+    font-size: 11px;
+}
+
+.type-character {
+    color: #8E8E8E;
+    font-weight: 600;
+    text-shadow: none;
+    font-size: 11px;
+}
+
+.rarity-4 {
+    color: #A256E1;
+    text-shadow: none;
+    font-size: 10px;
+}
+
+.rarity-5 {
+    color: #BD6932;
+    text-shadow: none;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.book-close:hover {
+    transform: scale(1.1);
+}
+
+.book-close:active {
+    transform: scale(0.95);
+}
+
+.book-close {
+    position: absolute;
+    top: 2px;          /* 垂直位置：让按钮在缺口中间 */
+    right: -28px;        /* 水平位置：从右侧数12px */
+    z-index: 10000 !important;
+    width: 35px;        /* 匹配缺口宽度 */
+    height: 35px;       /* 匹配缺口高度 */
+    isolation: isolate !important;
+    will-change: transform, z-index;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.wish-type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    background: #EDE8E0;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #d4b483;
+    text-shadow: none;
+    vertical-align: middle;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.time-column {
+    color: #e0e0e0;
+    font-size: 10px;
+    text-shadow: none;
+}
+
+/* 翻页控件样式 */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 8px; /* 减小间距 */
+    padding: 6px 0; /* 减小内边距 */
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid #EDE8E0;
+}
+
+.page-btn {
+    padding: 5px 10px;
+    background: #EDE8E0;
+    border: 1px solid #EDE8E0;
+    border-radius: 4px;
+    color: #595252;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 70px; /* 减小宽度 */
+    text-align: center;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: rgba(80, 70, 50, 0.9);
+    border-color: #ffd166;
+    box-shadow: none;
+}
+
+.page-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-btn .arrow {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.page-info {
+    color: #595252;
+    font-size: 12px;
+    background: #EDE8E0;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(120, 100, 70, 0.5);
+    min-width: 70px; /* 减小宽度 */
+    text-align: center;
+    font-weight: bold;
+}
+
+.current-page {
+    color: #595252;
+    font-weight: bold;
+}
+
+.total-pages {
+    color: #595252;
+    font-weight: bold;
+}
+
+.server-info {
+    margin-top: 6px; /* 减小间距 */
+    font-size: 10px;
+    color: #d0d0d0;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-align: center;
+    text-shadow: none;
+    flex-shrink: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+    .wish-container {
+        width: 95%;
+        height: auto;
+        aspect-ratio: 1.9 / 1;
+        max-width: 700px;
+        max-height: 370px;
+    }
+
+    .content-overlay {
+        width: 92%;
+        height: 88%;
+        padding: 12px 25px; /* 调整内边距 */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        align-items: center;
+    }
+
+    .wish-container {
+        width: 95%;
+        height: auto;
+        aspect-ratio: 1.9 / 1;
+        max-width: 600px;
+        max-height: 315px;
+    }
+
+    .content-overlay {
+        width: 94%;
+        height: 90%;
+        padding: 10px 18px; /* 调整内边距 */
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .wish-types {
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .pool-select-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        padding: 4px 6px;
+    }
+
+    .pool-select-wrapper label {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .pool-select {
+        min-width: 100%;
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+
+    .wish-table tbody tr {
+        height: 34px;
+    }
+
+    .table-container {
+        max-height: calc(5 * 34px + 36px);
+    }
+
+    .pagination-controls {
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+        padding: 5px;
+    }
+
+    .page-btn {
+        min-width: 60px;
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .page-btn .arrow {
+        font-size: 12px;
+    }
+
+    .page-info {
+        font-size: 11px;
+        padding: 2px 8px;
+        min-width: 60px;
+    }
+
+    .note {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .wish-table {
+        font-size: 11px;
+    }
+
+    .wish-table td {
+        padding: 5px 4px;
+    }
+
+    .time-column {
+        font-size: 9px;
+    }
+
+    .wish-type-badge {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+
+    .server-info {
+        font-size: 9px;
+        padding: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wish-container {
+        width: 98%;
+        aspect-ratio: 1.8 / 1;
+        max-width: 400px;
+        max-height: 222px;
+    }
+
+    .content-overlay {
+        width: 96%;
+        height: 92%;
+        padding: 8px 12px;
+    }
+
+    .wish-table th,
+    .wish-table td {
+        padding: 4px 2px;
+        font-size: 10px;
+    }
+
+    .wish-table tbody tr {
+        height: 32px;
+    }
+
+    .table-container {
+        max-height: calc(5 * 32px + 34px);
+    }
+
+    .pagination-controls {
+        gap: 8px;
+        padding: 4px;
+    }
+
+    .page-btn {
+        min-width: 55px;
+        padding: 3px 6px;
+        font-size: 10px;
+    }
+
+    .page-info {
+        font-size: 10px;
+        padding: 2px 6px;
+        min-width: 55px;
+    }
+}

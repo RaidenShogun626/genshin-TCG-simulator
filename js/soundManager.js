@@ -30,6 +30,7 @@ soundManager.loadSound("card", "./audio/card.wav");
 soundManager.loadSound("cardFlip", "./audio/Card_Open.wav");
 soundManager.loadSound("wishClick", "./audio/Wish_click.wav");
 soundManager.loadSound("wishClose", "./audio/Wish_Close.wav");
+soundManager.loadSound("Click", "./audio/Click.wav");
 // 添加稀有度音效（你需要准备这些音频文件）
 soundManager.loadSound("ssrSound", "./audio/5_star.wav");
 soundManager.loadSound("srSound", "./audio/4_star.wav");

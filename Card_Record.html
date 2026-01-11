@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祈愿历史记录</title>
+    <link rel="stylesheet" href="./css/Card_Record.css">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+</head>
+<body>
+<!-- 蓝天白云背景 -->
+<div class="sky-background"></div>
+
+<!-- 书本容器 -->
+<div class="wish-container">
+    <!-- 书的背景图 -->
+    <div class="book-background"></div>
+
+    <!-- 内容层 -->
+    <div class="content-overlay">
+        <!-- 标题和选择器 -->
+        <div class="header">
+            <h1 class="title">祈愿历史记录</h1>
+            <div class="wish-types">
+                <div class="pool-select-wrapper">
+                    <label for="poolSelect">祈愿类型：</label>
+                    <select id="poolSelect" class="pool-select">
+                        <option value="character-event">角色活动祈愿</option>
+                        <option value="weapon-event">武器活动祈愿</option>
+                        <option value="standard">常驻祈愿</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明文字 -->
+        <div class="note">
+            ※可在本页面查询最近6个月祈愿记录，祈愿记录查询有1小时左右延迟。若无法提前满足请求，以下祈愿时间仅将对应行者当前所在服务的时间；如您当前所在地区与服务器时区存在差异，请根据所有目的设定。备注为新希望的"天空岛(UTC+8)，世界树(UTC+8)，TW, HK,MO(UTC+8)，Asia(UTC+8)，Europe(UTC+1)，America(UTC-5)"
+        </div>
+
+        <!-- 表格容器 -->
+        <div class="table-container">
+            <table class="wish-table">
+                <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>名称</th>
+                    <th>祈愿类型</th>
+                    <th>祈愿时间</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 10连抽分组信息 -->
+        <div class="ten-pull-info" style="
+                text-align: center;
+                font-size: 11px;
+                color: #ffd166;
+                margin: 5px 0;
+                padding: 3px;
+                border-radius: 4px;
+            "></div>
+
+        <!-- 翻页控件 -->
+        <div class="pagination-controls">
+            <button class="page-btn" data-action="prev" disabled>
+                <span class="arrow">‹</span> 上一页
+            </button>
+
+            <div class="page-info">
+                第 <span class="current-page">1</span> 页 / 共 <span class="total-pages">1</span> 页
+            </div>
+
+            <button class="page-btn" data-action="next">
+                下一页 <span class="arrow">›</span>
+            </button>
+            <button class="book-close-btn">
+                <img src="./images/gacha_bg/book-exit.png" alt="关闭" class="book-close">
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script src="./js/Card_Record.js"></script>
+<script src="./js/CharList.js"></script>
+</body>
+</html>
