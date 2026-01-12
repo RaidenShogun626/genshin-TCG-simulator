@@ -59,7 +59,7 @@ body { min-height: 100vh; overflow: hidden; }
     width: 60%;
     height: auto;
 
-    background: #fff;
+    background: transparent;
     border: 2px solid #e6c78b;
     border-radius: 4px;
     box-shadow: none;
