@@ -157,7 +157,7 @@ function gacha(count = 1) {
                         if (count === 10) {
                             setTimeout(() => {
                                 skipBtn.classList.add('show');
-                            }, 300);
+                            }, 120);
                         }
                     }, 0);
                 });
