@@ -98,7 +98,7 @@ window.onload = function() {
         const totalPages = document.querySelector(".total-pages")
         const currentPages = document.querySelector(".current-page")
 
-        const shiftPage = function (index) {
+        const shiftPage = function ( ) {
             tBody.innerHTML = '';
             const items = wishData.slice(
                 5 * currentPageIndex,
@@ -107,7 +107,7 @@ window.onload = function() {
             const fragement = document.createDocumentFragment();
             items.forEach(wishItem => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${wishItem.type}</td><td>${wishItem.name}</td><td>${wishItem.rarity}</td><td>${new Date().toLocaleString()}</td>`;
+                tr.innerHTML = `<td>${wishItem.type}</td><td style="color: ${wishItem.rarity.startsWith('4') ? "#A256E1" : wishItem.rarity.startsWith("5") ? "#BD6932" : "#8D8D8C"}">${wishItem.name}</td><td style="color: ${wishItem.rarity.startsWith('4') ? "#A256E1" : wishItem.rarity.startsWith("5") ? "#BD6932" : "#8D8D8C"}">${wishItem.rarity}</td><td>${new Date().toLocaleString()}</td>`;
                 fragement.appendChild(tr);
             })
             tBody.appendChild(fragement);
@@ -165,3 +165,21 @@ function playHistorySound() {
         window.location.href = 'Card_Record.html';
     });
 }
+
+// 根据稀有度为元素添加对应的类
+function applyRarityColors() {
+    document.querySelectorAll('.wish-table tbody tr').forEach(row => {
+        const rarity = row.getAttribute('data-rarity'); // 假设你的数据中有data-rarity属性
+
+        if (rarity === '5') {
+            row.classList.add('rarity-5');
+        } else if (rarity === '4') {
+            row.classList.add('rarity-4');
+        } else if (rarity === '3') {
+            row.classList.add('rarity-3');
+        }
+    });
+}
+
+// 在数据加载完成后调用
+applyRarityColors();

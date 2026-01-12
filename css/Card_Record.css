@@ -240,31 +240,32 @@ body {
     background: rgba(120, 100, 70, 0.7);
 }
 
-.type-weapon {
-    color: #8E8E8E;
-    font-weight: 600;
-    text-shadow: none;
-    font-size: 11px;
-}
-
-.type-character {
-    color: #8E8E8E;
-    font-weight: 600;
-    text-shadow: none;
-    font-size: 11px;
-}
-
-.rarity-4 {
-    color: #A256E1;
-    text-shadow: none;
-    font-size: 10px;
-}
-
-.rarity-5★ {
-    color: #BD6932;
-    text-shadow: none;
+/* 创建一个通用的稀有度颜色类 */
+.text-rarity-5 {
+    color: #BD6932 !important;
     font-weight: bold;
-    font-size: 10px;
+}
+
+.text-rarity-4 {
+    color: #A256E1 !important;
+    font-weight: 600;
+}
+
+.text-rarity-3 {
+    color: #8D8D8C !important;
+}
+
+/* 在表格中应用 */
+.wish-table td .text-rarity-5 {
+    color: #BD6932;
+}
+
+.wish-table td .text-rarity-4 {
+    color: #A256E1;
+}
+
+.wish-table td .text-rarity-3 {
+    color: #8D8D8C;
 }
 
 .book-close:hover {
