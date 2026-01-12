@@ -60,7 +60,7 @@ body { min-height: 100vh; overflow: hidden; }
     height: auto;
 
     background: transparent;
-    border: 2px solid #e6c78b;
+    border: 3px solid #e6c78b;
     border-radius: 4px;
     box-shadow: none;
 }
