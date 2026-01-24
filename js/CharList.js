@@ -76,7 +76,7 @@ const CharList = {
         { path: "images/4star/Grounded_Geoshroom.png",name: "陆行岩本真蕈",type: "魔物",rarity: "4★"},
         { path: "images/4star/Winged_Dendroshroom.png",name: "有翼草本真蕈",type: "魔物",rarity: "4★"},
         { path: "images/4star/Winged_Cryoshroom.png",name: "有翼冰本真蕈",type: "魔物",rarity: "4★"},
-        { path: "images/4star/Thundercraven_Rifthound_Whelp",name: "嗜雷·兽境猎犬",type: "魔物",rarity: "4★"},
+        { path: "images/4star/Thundercraven_Rifthound_Whelp.png",name: "嗜雷·兽境猎犬",type: "魔物",rarity: "4★"},
         { path: "images/4star/Rockfond_Rifthound_Whelp.png",name: "嗜岩·兽境猎犬",type: "魔物",rarity: "4★"},
         { path: "images/4star/Suppression_Specialist_Mek.png",name: "攻坚特化型机关",type: "魔物",rarity: "4★"},
         { path: "images/4star/Annihilation_Specialist_Mek.png",name: "歼灭特化型机关",type: "魔物",rarity: "4★"},
