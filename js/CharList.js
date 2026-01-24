@@ -70,7 +70,7 @@ const CharList = {
         { path: "images/Wooden_Shieldwall_Mitachurl.png",name: "木盾丘丘暴徒",type: "魔物",rarity: "4★"},
         { path: "images/Rock_Shieldwall_Mitachurl.png",name: "岩盾丘丘暴徒",type: "魔物",rarity: "4★"},
         { path: "images/Ice_Shieldwall_Mitachurl.png",name: "冰盾丘丘暴徒",type: "魔物",rarity: "4★"},
-        { path: "images/Kairagi_Dancing Thunder.png",name: "海乱鬼·雷腾",type: "魔物",rarity: "4★"},
+        { path: "images/Kairagi_Dancing_Thunder.png",name: "海乱鬼·雷腾",type: "魔物",rarity: "4★"},
         { path: "images/Kairagi_Fiery_Might.png",name: "海乱鬼·炎威",type: "魔物",rarity: "4★"},
         { path: "images/Grounded_Hydroshroom.png",name: "陆行水本真蕈",type: "魔物",rarity: "4★"},
         { path: "images/Grounded_Geoshroom.png",name: "陆行岩本真蕈",type: "魔物",rarity: "4★"},
