@@ -29,7 +29,7 @@ const CharList = {
         { path: "images/Agents.png", name: "愚人众·债务处理人", type: "魔物", rarity: "5★" },
         { path: "images/Mirror_Maiden.png", name: "愚人众·藏镜仕女", type: "魔物", rarity: "5★" },
         { path: "images/Hydro_Tulpa.png",name: "水形幻人",type: "魔物",rarity: "5★"},
-        { path: "images/Gluttonous_Yumkasaur Mountain King.png",name: "贪食匿叶龙山王",type: "魔物",rarity: "5★"},
+        { path: "images/Gluttonous_Yumkasaur_Mountain_King.png",name: "贪食匿叶龙山王",type: "魔物",rarity: "5★"},
         { path: "images/Black_Serpent_Knight_Rockbreaker Ax.png",name: "黑蛇骑士．摧岩之钺",type: "魔物",rarity: "5★"},
         { path: "images/Amos_bow.png", name: "阿莫斯之弓", type: "武器", rarity: "5★" },
         { path: "images/A_Thousand_Floating_Dreams.png", name: "千夜浮梦", type: "武器", rarity: "5★" },
