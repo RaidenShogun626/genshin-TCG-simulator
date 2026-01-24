@@ -126,14 +126,13 @@ body::before {
 
     min-width: 70px;
     height: 28px;
-    padding: 0 15px;
-    border-radius: 17px;
+    padding: 0 13px;
+    border-radius: 16px;
 
-    background: rgba(226, 223, 213);
-    border: 1px solid rgba(226, 223, 213, 0.35);
+    background: #EBE4D8;
     color: #363D51;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 520; /*粗字体调整*/
 
     display: flex;
@@ -144,8 +143,9 @@ body::before {
 }
 
 .wish-footer .footer-btn:hover {
-    background: rgba(226, 223, 213);
-    border-color: #E2DFD5;
+    background: #DEDCC6;
+    border-color: #fff;
+    color: #fff;
 }
 
 .close-Wish {
@@ -211,7 +211,6 @@ body::before {
     font-weight: 500;
 
     border: none;
-    padding: 0;
     cursor: pointer;
 
     display: flex;
@@ -225,7 +224,9 @@ body::before {
     transition: all 0.2s;
 }
 .wish-btn:active {
-        transform: scale(0.98);
+        background-color: transparent;
+        opacity: 0.8;
+        transform: scale(0.95);
 }
 
 .func-btns {
@@ -412,7 +413,7 @@ body {
 
 /* 实心三角形在文字右边 */
 .skip-btn::after {
-    content: " ▶"; /* 实心三角形 */
+    content: "▶"; /* 实心三角形 */
     font-size: 11px; /* 比文字稍小 */
     opacity: 0.6;
     display: inline-block;
@@ -639,44 +640,44 @@ body {
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-    .history-header {
+.history-header {
         padding: 15px 20px;
         flex-direction: column;
         gap: 15px;
         align-items: flex-start;
-    }
+}
 
-    .history-stats {
+.history-stats {
         width: 100%;
         justify-content: space-between;
         gap: 10px;
-    }
+}
 
-    .stat-item {
+.stat-item {
         min-width: auto;
-    }
+}
 
-    .history-content {
+.history-content {
         padding: 20px;
-    }
+}
 
-    .timeline-item {
+.timeline-item {
         flex-wrap: wrap;
         gap: 10px;
-    }
+}
 
-    .timeline-time {
+.timeline-time {
         min-width: 100%;
         order: 1;
     }
 
-    .timeline-card {
+.timeline-card {
         order: 2;
         width: 60px;
         height: 85px;
-    }
+}
 
-    .timeline-rarity {
+.timeline-rarity {
         order: 3;
         min-width: auto;
     }
